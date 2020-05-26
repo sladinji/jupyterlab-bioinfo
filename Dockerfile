@@ -66,7 +66,7 @@ RUN jupyter labextension install jupyterlab-plotly
 RUN jupyter labextension install @jupyter-voila/jupyterlab-preview
 RUN jupyter labextension install @jupyterlab/hub-extension
 # install packages not available with conda
-RUN pip install streamlit requests bcbio-gff rpy2 voila ipyvuetify voila-vuetify ipysheet bqplot mothur-py mothulity line_profiler jupyterlab-git pipreqs
+RUN pip install streamlit requests bcbio-gff rpy2 voila ipyvuetify voila-vuetify ipysheet bqplot mothur-py mothulity line_profiler jupyterlab-git pipreqs openpyxl
 RUN jupyter lab build
 
 # OUR STUFF HERE vv
