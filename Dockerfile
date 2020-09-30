@@ -70,9 +70,9 @@ RUN pip install streamlit requests bcbio-gff rpy2 voila ipyvuetify voila-vuetify
 RUN jupyter lab build
 
 # OUR STUFF HERE vv
-RUN conda install --yes -c conda-forge 'r-biocmanager=1.30.*'
+#RUN conda install --yes -c conda-forge 'r-biocmanager=1.30.*'
 # Disabled cause dependcies conflicts found by conda on 26-05-20
-RUN conda install --no-deps --yes -c bioconda 'bioconductor-edger=3.10'
+#RUN conda install --no-deps --yes -c bioconda 'bioconductor-edger=3.10'
 #RUN conda install --no-deps --yes -c bioconda 'bioconductor-variancepartition'
 #RUN conda install --no-deps --yes -c bioconda 'bioconductor-biocparallel'
 # OUR STUFF HERE ^^
