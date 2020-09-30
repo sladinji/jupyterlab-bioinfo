@@ -61,12 +61,12 @@ COPY requirements.txt .
 RUN  while read requirement; do conda install --quiet --yes $requirement; done < requirements.txt
 RUN conda clean --all -f -y
 RUN apt-get update && \
-    apt-get install -y bwa rna-star mothur swarm
+    apt-get install -y bwa rna-star mothur swarm spades
 RUN jupyter labextension install jupyterlab-plotly
 RUN jupyter labextension install @jupyter-voila/jupyterlab-preview
 RUN jupyter labextension install @jupyterlab/hub-extension
 # install packages not available with conda
-RUN pip install streamlit requests bcbio-gff rpy2 voila ipyvuetify voila-vuetify ipysheet bqplot mothur-py mothulity line_profiler jupyterlab-git pipreqs openpyxl
+RUN pip install streamlit requests bcbio-gff rpy2 voila ipyvuetify voila-vuetify ipysheet bqplot mothur-py mothulity line_profiler jupyterlab-git pipreqs openpyxl pysam
 RUN jupyter lab build
 
 # OUR STUFF HERE vv
