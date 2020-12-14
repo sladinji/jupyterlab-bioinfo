@@ -63,18 +63,18 @@ COPY requirements.txt .
 RUN  while read requirement; do conda install --quiet --yes $requirement; done < requirements.txt
 RUN conda clean --all -f -y
 RUN apt-get update && \
-    apt-get install -y bwa rna-star mothur swarm
+    apt-get install -y bwa rna-star mothur swarm spades
 RUN jupyter labextension install jupyterlab-plotly
 RUN jupyter labextension install @jupyter-voila/jupyterlab-preview
 RUN jupyter labextension install @jupyterlab/hub-extension
 # install packages not available with conda
-RUN pip install streamlit requests bcbio-gff rpy2 voila ipyvuetify voila-vuetify ipysheet bqplot mothur-py mothulity line_profiler jupyterlab-git pipreqs openpyxl
+RUN pip install streamlit requests bcbio-gff rpy2 voila ipyvuetify voila-vuetify ipysheet bqplot mothur-py mothulity line_profiler jupyterlab-git pipreqs openpyxl pysam
 RUN jupyter lab build
 
 # OUR STUFF HERE vv
-RUN conda install --yes -c conda-forge 'r-biocmanager=1.30.*'
+#RUN conda install --yes -c conda-forge 'r-biocmanager=1.30.*'
 # Disabled cause dependcies conflicts found by conda on 26-05-20
-RUN conda install --no-deps --yes -c bioconda 'bioconductor-edger=3.10'
+#RUN conda install --no-deps --yes -c bioconda 'bioconductor-edger=3.10'
 #RUN conda install --no-deps --yes -c bioconda 'bioconductor-variancepartition'
 #RUN conda install --no-deps --yes -c bioconda 'bioconductor-biocparallel'
 # OUR STUFF HERE ^^
