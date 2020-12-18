@@ -57,6 +57,18 @@ RUN conda install --quiet --yes r-e1071
 # END R-NOTEBOOK COPY #
 #######################
 
+#######################
+# CUSTOM R-NOTEBOOK   #
+#######################
+RUN conda install --quiet --yes -c bioconda \
+    'bioconductor-dada2' \
+    'bioconductor-phyloseq' \
+    && \
+    conda clean --all -f -y && \
+    fix-permissions "${CONDA_DIR}"
+#########################
+# END CUSTOM R-NOTEBOOK #
+#########################
 USER root
 
 COPY requirements.txt .
